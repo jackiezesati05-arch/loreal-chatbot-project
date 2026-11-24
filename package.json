@@ -1,0 +1,16 @@
+{
+  "name": "loreal-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Smart Product Advisor static web application",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo \"Static site build complete\"",
+    "lint": "node --check server.js && node --check script.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

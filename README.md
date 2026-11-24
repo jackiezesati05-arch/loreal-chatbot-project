@@ -1,11 +1,14 @@
-<div align="center">
+# Project 8: L'Oréal Chatbot
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+L’Oréal is exploring the power of AI, and your job is to showcase what's possible. Your task is to build a chatbot that helps users discover and understand L’Oréal’s extensive range of products—makeup, skincare, haircare, and fragrances—as well as provide personalized routines and recommendations.
 
-  <h1>Built with AI Studio</h2>
+## 🚀 Launch via GitHub Codespaces
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+1. In the GitHub repo, click the **Code** button and select **Open with Codespaces → New codespace**.
+2. Once your codespace is ready, open the `index.html` file via the live preview.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## ☁️ Cloudflare Note
 
-</div>
+When deploying through Cloudflare, make sure your API request body (in `script.js`) includes a `messages` array and handle the response by extracting `data.choices[0].message.content`.
+
+Enjoy building your L’Oréal beauty assistant! 💄
