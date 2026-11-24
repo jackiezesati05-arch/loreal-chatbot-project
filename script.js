@@ -5,9 +5,14 @@ const chatWindow = document.getElementById("chatWindow");
 const sendBtn = document.getElementById("sendBtn");
 const clearBtn = document.getElementById("clearBtn");
 
-// API endpoint: calls our server-side proxy so no API key is ever exposed in the browser.
-// If deploying purely statically with a Cloudflare Worker, replace "/api/chat" with your Worker URL.
-const API_URL = "/api/chat";
+// Paste your deployed Cloudflare Worker URL below (e.g. "https://loreal-chatbot.your-name.workers.dev/")
+const CLOUDFLARE_WORKER_URL =
+  "https://loreal-chatbot.your-subdomain.workers.dev/";
+
+// Send requests to your Cloudflare Worker once configured, or use the local /api/chat proxy in preview
+const API_URL = CLOUDFLARE_WORKER_URL.includes("your-subdomain")
+  ? "/api/chat"
+  : CLOUDFLARE_WORKER_URL;
 
 // Storage key used to keep conversation history across page refreshes
 const STORAGE_KEY = "loreal_chat_history";
@@ -151,12 +156,11 @@ chatForm.addEventListener("submit", async (e) => {
   );
 
   try {
-    // 2. Send the full conversation messages array to OpenAI's Chat Completions API
+    // 2. Send the messages array to the Cloudflare Worker endpoint (no API key in frontend)
     const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "gpt-4.1",
         messages,
       }),
     });
